@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+:root {
+  /* Light mode colors */
+  --primary: 230 60% 50%;
+  --primary-rgb: 77, 102, 204;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 250 60% 60%;
+  --secondary-foreground: 0 0% 100%;
+  --accent: 340 80% 60%;
+  --accent-foreground: 0 0% 100%;
+  --background: 0 0% 100%;
+  --foreground: 240 10% 10%;
+  --card: 0 0% 98%;
+  --card-foreground: 240 10% 10%;
+  --muted: 240 5% 96%;
+  --muted-foreground: 240 4% 46%;
+  --border: 240 6% 90%;
+  --input: 240 6% 90%;
+  --ring: 230 60% 50%;
+  --gradient-start: 230 60% 50%;
+  --gradient-end: 250 60% 60%;
+}
+
+.dark {
+  /* Dark mode colors */
+  --primary: 230 60% 60%;
+  --primary-rgb: 102, 128, 230;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 250 60% 70%;
+  --secondary-foreground: 0 0% 100%;
+  --accent: 340 80% 65%;
+  --accent-foreground: 0 0% 100%;
+  --background: 240 10% 10%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 15%;
+  --card-foreground: 0 0% 98%;
+  --muted: 240 5% 20%;
+  --muted-foreground: 240 5% 65%;
+  --border: 240 6% 20%;
+  --input: 240 6% 20%;
+  --ring: 230 60% 60%;
+  --gradient-start: 230 60% 60%;
+  --gradient-end: 250 60% 70%;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+  }
+
+  .calligraphy-text {
+    font-family: "Great Vibes", cursive;
+  }
+
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+
+  @keyframes floating {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* ✅ Newly added from second CSS */
+  .animated-border {
+    position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .animated-border::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+      45deg,
+      hsl(var(--primary)),
+      hsl(var(--secondary)),
+      hsl(var(--accent)),
+      hsl(var(--primary))
+    );
+    background-size: 400% 400%;
+    z-index: -1;
+    animation: border-animation 6s ease infinite;
+    border-radius: 0.6rem;
+  }
+
+  @keyframes border-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* .shine::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: skewX(-25deg);
+    animation: shine 6s infinite;
+  } */
+
+  @keyframes shine {
+    0% {
+      left: -100%;
+    }
+    20%, 100% {
+      left: 100%;
+    }
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 5px rgba(var(--primary-rgb), 0.3);
+    }
+    to {
+      text-shadow: 0 0 15px rgba(var(--primary-rgb), 0.7);
+    }
+  }
+
+  .rotate-3d {
+    animation: rotate3d 15s linear infinite;
+    transform-style: preserve-3d;
+  }
+
+  @keyframes rotate3d {
+    0% {
+      transform: rotateY(0deg);
+    }
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+}
