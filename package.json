@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://rm1710.github.io/portfolio_RM-2.0",
+  "homepage": "https://Abhaywadkar04.github.io/portfolio",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
