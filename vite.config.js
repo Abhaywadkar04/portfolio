@@ -9,7 +9,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/portfolio_AW-1.0",
+  base: "/",
   build: {
     outDir: 'dist',
   },
