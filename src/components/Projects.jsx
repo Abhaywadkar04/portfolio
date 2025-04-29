@@ -15,7 +15,7 @@ const projects = [
       "A full-featured chat application built with the MERN stack, featuring JWT token authentication, file sharing, image sharing, and download functionalities.",
     image: img3,
     tags: ["MERN", "JWT", "File Sharing", "React"],
-    liveLink: "#",
+    liveLink: "https://cool-torte-b32d03.netlify.app/",
     githubLink: "https://github.com/Abhaywadkar04/whatsapp",
     type: "Academic Project",
   },
